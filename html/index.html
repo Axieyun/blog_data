@@ -1,0 +1,598 @@
+<!doctype html>
+<html style='font-size:20px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>index</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><em><span>大佬放过我，别攻击我的服务器。</span></em></p><h1 id='axieyun'><span>Axieyun</span></h1><ul><li><span>专注算法学习与高并发服务器开发</span></li><li><span>技术栈：C/C++、python、mysql、linux、matlab</span></li><li><span>该网站为个人最新的简单博客，另一个博客地址</span><a href='https://axieyun.top'><span>A邪云</span></a><span>。</span></li></ul><p>&nbsp;</p><h2 id='个人介绍'><span>个人介绍</span></h2><ul><li><span>就读高校：GUET</span></li><li><span>年纪：2020级</span></li><li><span>专业：应用统计学专业</span></li><li><span>性别：男</span></li><li><span>爱好：hht</span></li><li><span>Github:</span><a href='https://github.com/Axieyun'><span>A邪云</span></a></li></ul><p>&nbsp;</p><h2 id='c-1'><span>C</span></h2><ul><li><a href='http://blog.axieyun.top/html/ANSIC标准的预定义宏.html'><span>ANSIC标准的预定义宏</span></a></li><li><a href='http://blog.axieyun.top/html/C语言memset与memcpy.html'><span>C语言memset与memcpy</span></a></li><li><a href='http://blog.axieyun.top/html/c语言qsort讲解.html'><span>c语言qsort讲解</span></a></li><li><a href='http://blog.axieyun.top/html/C语言函数scanf的认识.html'><span>C语言函数scanf的认识</span></a></li><li><a href='http://blog.axieyun.top/html/C语言利用EasyX实现贪吃蛇基础版.html'><span>C语言利用EasyX实现贪吃蛇基础版</span></a></li><li><a href='http://blog.axieyun.top/html/C语言利用EasyX实现贪吃蛇进阶版.html'><span>C语言利用EasyX实现贪吃蛇进阶版</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><p>&nbsp;</p><h2 id='python'><span>Python</span></h2><ul><li><a href='http://blog.axieyun.top/html/python网络编码问题.html'><span>python网络编码问题</span></a></li><li><a href='http://blog.axieyun.top/html/记录一次在多版本python的系统中指定python版本.html'><span>记录一次在多版本python的系统中指定python版本</span></a></li><li><a href='http://blog.axieyun.top/html/py之文件操作.html'><span>py之文件操作</span></a></li><li><a href='http://blog.axieyun.top/html/py之输入输出.html'><span>py之输入输出</span></a></li><li><a href='http://blog.axieyun.top/html/py之匿名函数lambda.html'><span>py之匿名函数lambda</span></a></li><li><a href='http://blog.axieyun.top/html/py之模块.html'><span>py之模块</span></a></li><li><a href='http://blog.axieyun.top/html/py之类.html'><span>py之类</span></a></li><li><a href='http://blog.axieyun.top/html/python之pandas.html'><span>python之pandas</span></a></li><li><a href='http://blog.axieyun.top/html/py之对象.html'><span>py之对象</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><p>&nbsp;</p><h2 id='linux'><span>linux</span></h2><ul><li><a href='http://blog.axieyun.top/html/linux内核源码下载.html'><span>linux内核源码下载</span></a></li><li><a href='http://blog.axieyun.top/html/win子系统linux与云服务器传输文件.html'><span>win子系统linux与云服务器传输文件</span></a></li><li><a href='http://blog.axieyun.top/html/高效使用云主机.html'><span>高效使用云主机</span></a></li><li><a href='http://blog.axieyun.top/html/安装软件的两种方式.html'><span>安装软件的两种方式</span></a></li><li><a href='http://blog.axieyun.top/html/zsh插件.html'><span>zsh插件</span></a></li><li><a href='http://blog.axieyun.top/html/linux目录大小限制.html'><span>linux目录大小限制</span></a></li><li><a href='http://blog.axieyun.top/html/ftp搭建.html'><span>ftp搭建</span></a></li><li><a href='http://blog.axieyun.top/html/linux组与用户.html'><span>linux组与用户</span></a></li><li><a href='http://blog.axieyun.top/html/nginx安装.html'><span>nginx安装</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><h3 id='命令'><span>命令</span></h3><ul><li><a href='http://blog.axieyun.top/html/linux%E4%B9%8Bchmod.html'><span>linux之chmod</span></a></li><li><a href='http://blog.axieyun.top/html/linux的apt命令.html'><span>linux的apt命令</span></a></li><li><a href='http://blog.axieyun.top/html/linux删除文件夹与文件.html'><span>linux删除文件夹与文件</span></a></li><li><a href='http://blog.axieyun.top/html/linux之chown.html'><span>linux之chown</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><h4 id='日志-1'><span>日志</span></h4><ul><li><a href='http://blog.axieyun.top/html/宝塔版本回退.html'><span>宝塔版本回退</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='c-2'><span>C++</span></h2><ul><li><a href='http://blog.axieyun.top/html/C++开发环境配置.html'><span>C++开发环境配置</span></a></li><li><a href='http://blog.axieyun.top/html/C++lambda表达式动态执行.html'><span>C++lambda表达式动态执行</span></a></li><li><a href='http://blog.axieyun.top/html/C++实现智能指针shared-ptr.html'><span>C++实现智能指针shared-ptr</span></a></li><li><a href='http://blog.axieyun.top/html/实现vector模块.html'><span>实现vector模块</span></a></li><li><a href='http://blog.axieyun.top/html/forward与move.html'><span>forward与move</span></a></li><li><a href='http://blog.axieyun.top/html/C++之三五法则.html'><span>C++之三五法则</span></a></li><li><a href='http://blog.axieyun.top/html/封装总结.html'><span>封装总结</span></a></li><li><a href='http://blog.axieyun.top/html/元编程.html'><span>元编程</span></a></li><li><a href='http://blog.axieyun.top/html/深复制与浅复制.html'><span>深复制与浅复制</span></a></li><li><a href='http://blog.axieyun.top/html/C++多态与重载.html'><span>C++多态与重载</span></a></li><li><a href='http://blog.axieyun.top/html/C++实现简单的分数类.html'><span>C++实现简单的分数类</span></a></li><li><a href='http://blog.axieyun.top/html/C++常方法.html'><span>C++常方法</span></a></li><li><a href='http://blog.axieyun.top/html/C++类方法与类属性.html'><span>C++类方法与类属性</span></a></li><li><a href='http://blog.axieyun.top/html/C++之声明、定义、初始化与赋值.html'><span>C++之声明、定义、初始化与赋值</span></a></li><li><a href='http://blog.axieyun.top/html/C++之new和delete.html'><span>C++之new和delete</span></a></li><li><a href='http://blog.axieyun.top/html/C++11之decltype.html'><span>C++11之decltype</span></a></li><li><a href='http://blog.axieyun.top/html/C++之对象指针.html'><span>C++之对象指针</span></a></li><li><a href='http://blog.axieyun.top/html/struct和class区别.html'><span>struct和class区别</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><p>&nbsp;</p><h2 id='基础数据结构'><span>基础数据结构</span></h2><ul><li><a href='http://blog.axieyun.top/html/AVL%E6%A0%91.html'><span>AVL树</span></a></li><li><a href='http://blog.axieyun.top/html/队列.html'><span>队列</span></a></li><li><a href='http://blog.axieyun.top/html/家里养羊-二分答案.html'><span>家里养羊-二分答案</span></a></li><li><a href='http://blog.axieyun.top/html/堆与优先队列.html'><span>堆与优先队列</span></a></li><li><a href='http://blog.axieyun.top/html/堆排序.html'><span>堆排序</span></a></li><li><a href='http://blog.axieyun.top/html/广义表转二叉树.html'><span>广义表转二叉树</span></a></li><li><a href='http://blog.axieyun.top/html/哈希表.html'><span>哈希表</span></a></li><li><a href='http://blog.axieyun.top/html/链栈.html'><span>链栈</span></a></li></ul><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='高级数据结构'><span>高级数据结构</span></h2><ul><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><p>&nbsp;</p><h2 id='日志-2'><span>日志</span></h2><ul><li><a href='http://blog.axieyun.top/html/记录一次DNS错误异常，导致浏览器使用不了网络.html'><span>记录一次DNS错误异常，导致浏览器使用不了网络</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='matlab'><span>matlab</span></h2><ul><li><a href='http://blog.axieyun.top/html/matlab之struct数组排序.html'><span>matlab之struct数组排序</span></a></li><li><a href='http://blog.axieyun.top/html/Matlab 最优化求解.html'><span>Matlab 最优化求解</span></a></li><li><a href='http://blog.axieyun.top/html/Matlab 画图大全.html'><span>Matlab 画图大全</span></a></li><li><a href='http://blog.axieyun.top/html/矩阵方面求协方差矩阵.html'><span>矩阵方面求协方差矩阵</span></a></li><li><a href='http://blog.axieyun.top/html/高阶线性微分方程组matlab求解.html'><span>高阶线性微分方程组matlab求解</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><p>&nbsp;</p><h2 id='mysql'><span>MySQL</span></h2><ul><li><a href='http://blog.axieyun.top/html/MySQL之单词学习.html'><span>MySQL之单词学习</span></a></li><li><a href='http://blog.axieyun.top/html/MySQL之数据类型.html'><span>MySQL之数据类型</span></a></li><li><a href='http://blog.axieyun.top/html/MySQL之数据类型.html'><span>MySQL之数据类型</span></a></li><li><a href='http://blog.axieyun.top/html/MySQL之组合查询.html'><span>MySQL之组合查询</span></a></li><li><a href='http://blog.axieyun.top/html/MySQL之子查询.html'><span>MySQL之子查询</span></a></li><li><a href='http://blog.axieyun.top/html/MySQL之分组查询.html'><span>MySQL之分组查询</span></a></li><li><a href='http://blog.axieyun.top/html/MySQL之多表查询.html'><span>MySQL之多表查询</span></a></li><li><a href='http://blog.axieyun.top/html/MySQL之SQL约束.html'><span>MySQL之SQL约束</span></a></li><li><a href='http://blog.axieyun.top/html/MySQL之函数.html'><span>MySQL之函数</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><p>&nbsp;</p><h2 id='灰色系统'><span>灰色系统</span></h2><ul><li><a href='http://blog.axieyun.top/html/灰色系统.html'><span>灰色系统</span></a></li></ul><p>&nbsp;</p><h2 id='力扣刷题'><span>力扣刷题</span></h2><ul><li><a href='http://blog.axieyun.top/html/力扣110、平衡二叉树.html'><span>力扣110、平衡二叉树</span></a></li><li><a href='http://blog.axieyun.top/html/力扣669、修剪二叉搜索树.html'><span>力扣669、修剪二叉搜索树</span></a></li><li><a href='http://blog.axieyun.top/html/力扣剑指Offer54、二叉搜索树的第k大节点.html'><span>力扣剑指Offer54、二叉搜索树的第k大节点</span></a></li><li><a href='http://blog.axieyun.top/html/力扣题解450、删除二叉搜索树中的节点.html'><span>力扣题解450、删除二叉搜索树中的节点</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><h2 id='图论'><span>图论</span></h2><ul><li><p><a href='http://blog.axieyun.top/html/链式前向星.html'><span>链式前向星</span></a></p></li><li><p><a href='http://blog.axieyun.top/html/生成树与最小生成树.html'><span>生成树与最小生成树</span></a></p></li><li><p><a href='http://blog.axieyun.top/html/旅行计划-拓扑排序.html'><span>旅行计划-拓扑排序</span></a></p></li><li><p><a href='http://blog.axieyun.top/html/牛客保卫村庄-树的重心.html'><span>牛客保卫村庄-树的重心</span></a></p></li><li><p><a href='http://blog.axieyun.top/html/.html'></a></p></li><li><p><a href='http://blog.axieyun.top/html/.html'></a></p></li><li><p><a href='http://blog.axieyun.top/html/.html'></a></p></li><li><p><a href='http://blog.axieyun.top/html/.html'></a></p></li><li><p><a href='http://blog.axieyun.top/html/.html'></a></p><p>&nbsp;</p></li></ul><p>&nbsp;</p><h2 id='算法'><span>算法</span></h2><p>&nbsp;</p><ul><li><a href='http://blog.axieyun.top/html/Kruskal算法.html'><span>Kruskal算法</span></a></li><li><a href='http://blog.axieyun.top/html/拓扑排序.html'><span>拓扑排序</span></a></li><li><a href='http://blog.axieyun.top/html/森林与并查集.html'><span>森林与并查集</span></a></li><li><a href='http://blog.axieyun.top/html/树的重心与直径.html'><span>树的重心与直径</span></a></li><li><a href='http://blog.axieyun.top/html/二叉树的还原.html'><span>二叉树的还原</span></a></li><li><a href='http://blog.axieyun.top/html/牛客保卫村庄之树的重心.html'><span>牛客保卫村庄之树的重心</span></a></li><li><a href='http://blog.axieyun.top/html/最长路.html'><span>最长路</span></a></li><li><a href='http://blog.axieyun.top/html/最短路算法.html'><span>最短路算法</span></a></li><li><a href='http://blog.axieyun.top/html/直径公共边.html'><span>直径公共边</span></a></li><li><a href='http://blog.axieyun.top/html/位运算快读.html'><span>位运算快读</span></a></li><li><a href='http://blog.axieyun.top/html/双向链表.html'><span>双向链表</span></a></li><li><a href='http://blog.axieyun.top/html/三分查找.html'><span>三分查找</span></a></li><li><a href='http://blog.axieyun.top/html/二分查找.html'><span>二分查找</span></a></li><li><a href='http://blog.axieyun.top/html/快速排序.html'><span>快速排序</span></a></li><li><a href='http://blog.axieyun.top/html/最快的求一个数根号的倒数的方法.html'><span>最快的求一个数根号的倒数的方法</span></a></li><li><a href='http://blog.axieyun.top/html/约瑟夫环.html'><span>约瑟夫环</span></a></li><li><a href='http://blog.axieyun.top/html/判断一个整数是否为2的幂.html'><span>判断一个整数是否为2的幂</span></a></li><li><a href='http://blog.axieyun.top/html/基础数论.html'><span>基础数论</span></a></li><li><a href='http://blog.axieyun.top/html/滑动窗口法.html'><span>滑动窗口法</span></a></li><li><a href='http://blog.axieyun.top/html/两个大整数乘法.html'><span>两个大整数乘法</span></a></li><li><a href='http://blog.axieyun.top/html/两个大整数加法.html'><span>两个大整数加法</span></a></li><li><a href='http://blog.axieyun.top/html/二分专题.html'><span>二分专题</span></a></li><li><a href='http://blog.axieyun.top/html/启发式搜索.html'><span>启发式搜索</span></a></li><li><a href='http://blog.axieyun.top/html/普里姆算法-Prim算法.html'><span>普里姆算法-Prim算法</span></a></li><li><a href='http://blog.axieyun.top/html/归并排序.html'><span>归并排序</span></a></li><li><a href='http://blog.axieyun.top/html/12蓝桥杯杨辉三角.html'><span>12蓝桥杯杨辉三角</span></a></li><li><a href='http://blog.axieyun.top/html/网络流.html'><span>网络流</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><h3 id='动态规划'><span>动态规划</span></h3><ul><li><a href='http://blog.axieyun.top/html/洛谷背包专题.html'><span>洛谷背包专题</span></a></li><li><a href='http://blog.axieyun.top/html/闫氏DP分析法.html'><span>闫氏DP分析法</span></a></li><li><a href='http://blog.axieyun.top/html/多重背包.html'><span>多重背包</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><p>&nbsp;</p><h3 id='刷题'><span>刷题</span></h3><p>&nbsp;</p><h4 id='洛谷'><span>洛谷</span></h4><ul><li><a href='http://blog.axieyun.top/html/神经网络.html'><span>神经网络</span></a></li><li><a href='http://blog.axieyun.top/html/旅行计划.html'><span>旅行计划</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><h4 id='牛客网'><span>牛客网</span></h4><ul><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><h4 id='力扣'><span>力扣</span></h4><ul><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul><p>&nbsp;</p><p>&nbsp;</p><h2 id='网络编程'><span>网络编程</span></h2><h3 id='系统调用'><span>系统调用</span></h3><ul><li><a href='http://blog.axieyun.top/html/dup和dup2.html'><span>dup和dup2</span></a></li><li><a href='http://blog.axieyun.top/html/系统调用open函数.html'><span>系统调用open函数</span></a></li><li><a href='http://blog.axieyun.top/html/地址与端口重用.html'><span>地址与端口重用</span></a></li><li><a href='http://blog.axieyun.top/html/消息队列.html'><span>消息队列</span></a></li><li><a href='http://blog.axieyun.top/html/查看ip.html'><span>查看ip</span></a></li><li><a href='http://blog.axieyun.top/html/守护进程.html'><span>守护进程</span></a></li><li><a href='http://blog.axieyun.top/html/线程.html'><span>线程</span></a></li><li><a href='http://blog.axieyun.top/html/套接字编程.html'><span>套接字编程</span></a></li><li><a href='http://blog.axieyun.top/html/.html'></a></li></ul></div></div>
+</body>
+</html>
